@@ -1,0 +1,17 @@
+{
+  "baseline_logreg": {
+    "identification_accuracy": 0.9579776756401839,
+    "eer": 0.01774544700556381,
+    "auc": 0.9989877368706276
+  },
+  "baseline_svm": {
+    "identification_accuracy": 0.9369665134602758,
+    "eer": 0.05187130663164805,
+    "auc": 0.9884803064941655
+  },
+  "cnn": {
+    "identification_accuracy": 0.9399212081418253,
+    "eer": 0.019836195873794794,
+    "auc": 0.9983272494454467
+  }
+}

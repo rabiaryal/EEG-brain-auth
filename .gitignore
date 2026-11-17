@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# Data (large, downloaded from PhysioNet - never commit)
+data/
+*.edf
+*.npy
+*.npz
+
+AGENT.md
+
+# Model checkpoints
+models/
+*.pt
+*.pth
+*.joblib
+
+# Environment / secrets
+.env
+*.key
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Notebooks checkpoints
+.ipynb_checkpoints/

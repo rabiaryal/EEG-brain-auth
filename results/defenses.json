@@ -1,0 +1,251 @@
+{
+  "seeds": {
+    "python": 42,
+    "numpy": 42,
+    "torch": 42
+  },
+  "threshold": 0.024241384118795395,
+  "adversarial_training": {
+    "train_seconds": 67.5,
+    "epochs": 36,
+    "pgd_eps": 0.1,
+    "clean_before": {
+      "identification_accuracy": 0.9399212081418253,
+      "eer": 0.019836195873794794,
+      "auc": 0.9983272494454467,
+      "impostor_far_at_fixed_threshold": 0.019836195873794794
+    },
+    "clean_after": {
+      "identification_accuracy": 0.9346684175968484,
+      "eer": 0.023637557452396568,
+      "auc": 0.9956188388836018,
+      "impostor_far_at_fixed_threshold": 0.02871755883470989
+    },
+    "attacks_before": {
+      "note": "targeted white-box attacks on the CNN; epsilons are in per-channel-normalised units (mean-channel std in raw volts is reported below)",
+      "raw_std_volts": 3.9095237298170105e-05,
+      "fgsm": [
+        {
+          "n_pairs": 50,
+          "acceptance_rate": 0.02,
+          "clean_acceptance_rate": 0.02,
+          "mean_l2_perturbation_ratio": 0.0019275012006983161,
+          "mean_linf_perturbation_ratio": 0.008406110031937714,
+          "epsilon": 0.001
+        },
+        {
+          "n_pairs": 50,
+          "acceptance_rate": 0.02,
+          "clean_acceptance_rate": 0.02,
+          "mean_l2_perturbation_ratio": 0.007838803543709218,
+          "mean_linf_perturbation_ratio": 0.0094749796052929,
+          "epsilon": 0.005
+        },
+        {
+          "n_pairs": 50,
+          "acceptance_rate": 0.02,
+          "clean_acceptance_rate": 0.02,
+          "mean_l2_perturbation_ratio": 0.015302121601998807,
+          "mean_linf_perturbation_ratio": 0.01081105656689033,
+          "epsilon": 0.01
+        },
+        {
+          "n_pairs": 50,
+          "acceptance_rate": 0.14,
+          "clean_acceptance_rate": 0.02,
+          "mean_l2_perturbation_ratio": 0.030320609491318463,
+          "mean_linf_perturbation_ratio": 0.013483201107010245,
+          "epsilon": 0.02
+        },
+        {
+          "n_pairs": 50,
+          "acceptance_rate": 0.56,
+          "clean_acceptance_rate": 0.02,
+          "mean_l2_perturbation_ratio": 0.0755511637404561,
+          "mean_linf_perturbation_ratio": 0.02149964591488242,
+          "epsilon": 0.05
+        },
+        {
+          "n_pairs": 50,
+          "acceptance_rate": 0.88,
+          "clean_acceptance_rate": 0.02,
+          "mean_l2_perturbation_ratio": 0.15102420277893544,
+          "mean_linf_perturbation_ratio": 0.03486038329079747,
+          "epsilon": 0.1
+        }
+      ],
+      "pgd": [
+        {
+          "n_pairs": 50,
+          "acceptance_rate": 0.02,
+          "clean_acceptance_rate": 0.02,
+          "mean_l2_perturbation_ratio": 0.0019275012006983161,
+          "mean_linf_perturbation_ratio": 0.008406110031937714,
+          "epsilon": 0.001
+        },
+        {
+          "n_pairs": 50,
+          "acceptance_rate": 0.02,
+          "clean_acceptance_rate": 0.02,
+          "mean_l2_perturbation_ratio": 0.007838803203776478,
+          "mean_linf_perturbation_ratio": 0.0094749796052929,
+          "epsilon": 0.005
+        },
+        {
+          "n_pairs": 50,
+          "acceptance_rate": 0.02,
+          "clean_acceptance_rate": 0.02,
+          "mean_l2_perturbation_ratio": 0.014956857459619641,
+          "mean_linf_perturbation_ratio": 0.01081105656689033,
+          "epsilon": 0.01
+        },
+        {
+          "n_pairs": 50,
+          "acceptance_rate": 0.14,
+          "clean_acceptance_rate": 0.02,
+          "mean_l2_perturbation_ratio": 0.029668903090059758,
+          "mean_linf_perturbation_ratio": 0.013483200771734118,
+          "epsilon": 0.02
+        },
+        {
+          "n_pairs": 50,
+          "acceptance_rate": 0.64,
+          "clean_acceptance_rate": 0.02,
+          "mean_l2_perturbation_ratio": 0.07279554054141045,
+          "mean_linf_perturbation_ratio": 0.021499644983559846,
+          "epsilon": 0.05
+        },
+        {
+          "n_pairs": 50,
+          "acceptance_rate": 0.96,
+          "clean_acceptance_rate": 0.02,
+          "mean_l2_perturbation_ratio": 0.13724352687597274,
+          "mean_linf_perturbation_ratio": 0.03486038329079747,
+          "epsilon": 0.1
+        }
+      ]
+    },
+    "attacks_after": {
+      "fgsm": [
+        {
+          "epsilon": 0.001,
+          "n_pairs": 50,
+          "acceptance_rate": 0.02,
+          "clean_acceptance_rate": 0.02,
+          "mean_l2_perturbation_ratio": 0.001927501211175695,
+          "mean_linf_perturbation_ratio": 0.008406110031937714
+        },
+        {
+          "epsilon": 0.005,
+          "n_pairs": 50,
+          "acceptance_rate": 0.02,
+          "clean_acceptance_rate": 0.02,
+          "mean_l2_perturbation_ratio": 0.007838803548365832,
+          "mean_linf_perturbation_ratio": 0.009474978846265003
+        },
+        {
+          "epsilon": 0.01,
+          "n_pairs": 50,
+          "acceptance_rate": 0.06,
+          "clean_acceptance_rate": 0.02,
+          "mean_l2_perturbation_ratio": 0.015302121732383966,
+          "mean_linf_perturbation_ratio": 0.01081105659948662
+        },
+        {
+          "epsilon": 0.02,
+          "n_pairs": 50,
+          "acceptance_rate": 0.08,
+          "clean_acceptance_rate": 0.02,
+          "mean_l2_perturbation_ratio": 0.030320609640330076,
+          "mean_linf_perturbation_ratio": 0.013483202089555562
+        },
+        {
+          "epsilon": 0.05,
+          "n_pairs": 50,
+          "acceptance_rate": 0.5,
+          "clean_acceptance_rate": 0.02,
+          "mean_l2_perturbation_ratio": 0.0755511637032032,
+          "mean_linf_perturbation_ratio": 0.0214996456541121
+        },
+        {
+          "epsilon": 0.1,
+          "n_pairs": 50,
+          "acceptance_rate": 0.84,
+          "clean_acceptance_rate": 0.02,
+          "mean_l2_perturbation_ratio": 0.15102419026196004,
+          "mean_linf_perturbation_ratio": 0.03486038329079747
+        }
+      ],
+      "pgd": [
+        {
+          "epsilon": 0.001,
+          "n_pairs": 50,
+          "acceptance_rate": 0.02,
+          "clean_acceptance_rate": 0.02,
+          "mean_l2_perturbation_ratio": 0.001927501199534163,
+          "mean_linf_perturbation_ratio": 0.008406110031937714
+        },
+        {
+          "epsilon": 0.005,
+          "n_pairs": 50,
+          "acceptance_rate": 0.02,
+          "clean_acceptance_rate": 0.02,
+          "mean_l2_perturbation_ratio": 0.007838803264312445,
+          "mean_linf_perturbation_ratio": 0.009474978846265003
+        },
+        {
+          "epsilon": 0.01,
+          "n_pairs": 50,
+          "acceptance_rate": 0.06,
+          "clean_acceptance_rate": 0.02,
+          "mean_l2_perturbation_ratio": 0.014924999317154289,
+          "mean_linf_perturbation_ratio": 0.01081105659948662
+        },
+        {
+          "epsilon": 0.02,
+          "n_pairs": 50,
+          "acceptance_rate": 0.08,
+          "clean_acceptance_rate": 0.02,
+          "mean_l2_perturbation_ratio": 0.029630141463130713,
+          "mean_linf_perturbation_ratio": 0.013483201279304921
+        },
+        {
+          "epsilon": 0.05,
+          "n_pairs": 50,
+          "acceptance_rate": 0.56,
+          "clean_acceptance_rate": 0.02,
+          "mean_l2_perturbation_ratio": 0.07288181383162737,
+          "mean_linf_perturbation_ratio": 0.021499644983559846
+        },
+        {
+          "epsilon": 0.1,
+          "n_pairs": 50,
+          "acceptance_rate": 0.92,
+          "clean_acceptance_rate": 0.02,
+          "mean_l2_perturbation_ratio": 0.13902066633105278,
+          "mean_linf_perturbation_ratio": 0.03486038288101554
+        }
+      ]
+    }
+  },
+  "challenge_response": {
+    "task_classifier_val_accuracy": 0.5166666666666667,
+    "n_task_clips": 1500,
+    "task_clip_counts": [
+      600,
+      300,
+      300,
+      300
+    ],
+    "p_task_classifier_accept": 0.5166666666666667,
+    "p_identity_accept": 1.0,
+    "replay_success_by_library_size": {
+      "1": 0.1245,
+      "2": 0.25625625625625625,
+      "3": 0.355,
+      "4": 0.4695
+    },
+    "replay_success_without_challenge": 1.0,
+    "note": "simulation: victim not physically present; requestable tasks are the dataset's own train-run tasks {eyes_open, task1, task2, task3}; library = held-out clips of each victim per task"
+  }
+}
