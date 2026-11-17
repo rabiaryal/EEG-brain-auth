@@ -1,0 +1,124 @@
+{
+  "seeds": {
+    "python": 42,
+    "numpy": 42,
+    "torch": 42
+  },
+  "threshold": 0.0007857447490096092,
+  "attacks": {
+    "impostor_zero_effort": {
+      "far_at_threshold": 0.03063329031649784,
+      "n_impostor_attempts": 1697010,
+      "note": "zero-effort impostor: wrong claimed identity, attacker's own EEG"
+    },
+    "replay": {
+      "acceptance_rate_test_recordings": 0.9696200965227075,
+      "acceptance_rate_enrollment_recordings": 0.9998674970186829,
+      "note": "replay = resubmitting previously recorded genuine clips of the victim; a static biometric cannot distinguish a live user from a replayed recording of that user. Enrollment clips score higher because the classifier was trained on them."
+    },
+    "adversarial": {
+      "note": "targeted white-box attacks on the CNN; epsilons are in per-channel-normalised units (mean-channel std in raw volts is reported below)",
+      "raw_std_volts": 4.527359487838112e-05,
+      "fgsm": [
+        {
+          "n_pairs": 200,
+          "acceptance_rate": 0.025,
+          "clean_acceptance_rate": 0.025,
+          "mean_l2_perturbation_ratio": 0.0021104094116890337,
+          "mean_linf_perturbation_ratio": 0.005454060299562116,
+          "epsilon": 0.001
+        },
+        {
+          "n_pairs": 200,
+          "acceptance_rate": 0.035,
+          "clean_acceptance_rate": 0.025,
+          "mean_l2_perturbation_ratio": 0.008880378785543144,
+          "mean_linf_perturbation_ratio": 0.00668664310767781,
+          "epsilon": 0.005
+        },
+        {
+          "n_pairs": 200,
+          "acceptance_rate": 0.07,
+          "clean_acceptance_rate": 0.025,
+          "mean_l2_perturbation_ratio": 0.017370331974234432,
+          "mean_linf_perturbation_ratio": 0.008227370616514235,
+          "epsilon": 0.01
+        },
+        {
+          "n_pairs": 200,
+          "acceptance_rate": 0.21,
+          "clean_acceptance_rate": 0.025,
+          "mean_l2_perturbation_ratio": 0.03439441048074514,
+          "mean_linf_perturbation_ratio": 0.011308813347714022,
+          "epsilon": 0.02
+        },
+        {
+          "n_pairs": 200,
+          "acceptance_rate": 0.56,
+          "clean_acceptance_rate": 0.025,
+          "mean_l2_perturbation_ratio": 0.08560460990294814,
+          "mean_linf_perturbation_ratio": 0.020553143813740463,
+          "epsilon": 0.05
+        },
+        {
+          "n_pairs": 200,
+          "acceptance_rate": 0.735,
+          "clean_acceptance_rate": 0.025,
+          "mean_l2_perturbation_ratio": 0.17106808042153715,
+          "mean_linf_perturbation_ratio": 0.03596036609262228,
+          "epsilon": 0.1
+        }
+      ],
+      "pgd": [
+        {
+          "n_pairs": 200,
+          "acceptance_rate": 0.025,
+          "clean_acceptance_rate": 0.025,
+          "mean_l2_perturbation_ratio": 0.0021104094175098,
+          "mean_linf_perturbation_ratio": 0.005454060299562116,
+          "epsilon": 0.001
+        },
+        {
+          "n_pairs": 200,
+          "acceptance_rate": 0.035,
+          "clean_acceptance_rate": 0.025,
+          "mean_l2_perturbation_ratio": 0.008880378575995565,
+          "mean_linf_perturbation_ratio": 0.006686643307912164,
+          "epsilon": 0.005
+        },
+        {
+          "n_pairs": 200,
+          "acceptance_rate": 0.075,
+          "clean_acceptance_rate": 0.025,
+          "mean_l2_perturbation_ratio": 0.01681712529854849,
+          "mean_linf_perturbation_ratio": 0.008227370667736978,
+          "epsilon": 0.01
+        },
+        {
+          "n_pairs": 200,
+          "acceptance_rate": 0.235,
+          "clean_acceptance_rate": 0.025,
+          "mean_l2_perturbation_ratio": 0.03332471556495875,
+          "mean_linf_perturbation_ratio": 0.011308813501382247,
+          "epsilon": 0.02
+        },
+        {
+          "n_pairs": 200,
+          "acceptance_rate": 0.75,
+          "clean_acceptance_rate": 0.025,
+          "mean_l2_perturbation_ratio": 0.08002397495321929,
+          "mean_linf_perturbation_ratio": 0.02055314344121143,
+          "epsilon": 0.05
+        },
+        {
+          "n_pairs": 200,
+          "acceptance_rate": 0.945,
+          "clean_acceptance_rate": 0.025,
+          "mean_l2_perturbation_ratio": 0.1428942228667438,
+          "mean_linf_perturbation_ratio": 0.03596036503557116,
+          "epsilon": 0.1
+        }
+      ]
+    }
+  }
+}

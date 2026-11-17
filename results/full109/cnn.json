@@ -1,0 +1,21 @@
+{
+  "seeds": {
+    "python": 42,
+    "numpy": 42,
+    "torch": 42
+  },
+  "device": "mps",
+  "name": "cnn",
+  "identification_accuracy": 0.8834302685311224,
+  "eer": 0.030379903477292414,
+  "far_at_eer": 0.03063329031649784,
+  "frr_at_eer": 0.030379903477292414,
+  "eer_threshold": 0.0007857447490096092,
+  "auc": 0.9921412527902601,
+  "n_genuine_scores": 16162,
+  "n_impostor_scores": 1697010,
+  "n_params": 105482,
+  "train_seconds": 267.7,
+  "n_epochs": 60,
+  "best_val_loss": 0.04412633180618286
+}
