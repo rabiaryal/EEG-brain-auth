@@ -32,4 +32,3 @@ models/
 # Notebooks checkpoints
 .ipynb_checkpoints/
 bed_results.zip
-bed_results/
