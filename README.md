@@ -2,7 +2,7 @@
 
 I wanted to see whether brain signals can be used to log someone in, and how easily such a system can be fooled. So I built a small EEG verifier and then tried to break it.
 
-It identifies people well on normal recordings (about 2% error), but it is easy to fool: replaying a genuine recording gets accepted almost every time, and a small crafted change to the signal gets an impostor accepted about 94% of the time. Adversarial training helped only a little. Details are below.
+It identifies people well on normal recordings (about 2% error), but it is easy to fool: replaying a genuine recording gets accepted almost every time, and a small crafted change to the signal gets an impostor accepted about 94% of the time. Adversarial training helped only a little. When I tested across days on a second dataset (BED), the error rose from about 1–8% within a session to roughly 34–39% a week later. Details are below.
 
 ## Dataset
 
@@ -35,6 +35,28 @@ What I take from this:
 
 I also simulated a challenge-response check against replay (the user is asked to do a task and the system checks it). It cut replay success to roughly 10–40%, but the task classifier is weak (46% accuracy on four tasks), so treat it as a rough idea, not a working defense.
 
+### Across days: BED dataset
+
+EEGMMIDB is a single visit, so I also tested on [BED](https://zenodo.org/records/4309471) (21 subjects, 14-channel Emotiv headset, 3 sessions one week apart; the data is restricted so it is not in this repo). I ran ten experiments in `notebooks/colab_bed.ipynb`; every number is in `results/bed/results.md`. EER (lower is better, 50% is chance):
+
+| Test | Logistic regression | Riemannian | Template matching | CNN (5 seeds) |
+|---|---|---|---|---|
+| Same session | 2.3% | 1.2% | 5.8% | 7.7% |
+| 1 week later (enrol on 1 session) | 34.5% | 35.6% | 34.0% | 29.3% |
+| 2 weeks later (enrol on 1 session) | 38.9% | 38.4% | 36.2% | 33.6% |
+
+![BED EER by time gap](results/bed/fig1_time_gap.png)
+
+- **Across days it breaks.** Within a session every model works, but a different day gives 29-39% EER. The 2% EER above is optimistic for a real login.
+- **Enrolling on two sessions helps most.** Training on two sessions and testing on the third lowered EER in all 12 cases (by 0.5 to 12 points). The best case was the CNN tested on session 2: 31.3% to 19.2%.
+- **A little new data helps.** Adding just 5 clips (10 seconds) per user from the new session cut logistic regression from 40.5% to 35.2%. With 80 clips (about 2.7 minutes) template matching went from 35.8% to 28.1%.
+- **Averaging several clips helps a bit.** Fusing 5-10 clips per login lowered EER by 2-4 points when enrolled on two sessions (template matching: 26.6% to 23.1%). It did little with one enrolment session.
+- **Things that did not help:** per-session alignment (Euclidean alignment made the Riemannian models worse, for example 32.1% to 38.7%), using only eyes-closed or only eyes-open data (no clear difference), and using only alpha-band features (35.7% to 41.8%).
+- **Unseen impostors are no harder.** When impostors were people who were never enrolled, the template matcher scored 26.9% EER (enrolled on two sessions), about the same as the normal test (26.6%).
+- **Net effect of the improvements.** On session 3, the step-by-step ladder took logistic regression from 40.5% to 31.0% and Riemannian from 39.6% to 37.1%. The CNN barely moved (33.9% to 32.1%), and template matching ended slightly worse (35.8% to 36.7%). The best single numbers I got were about 19-23% EER, which is still far from usable.
+
+![Improvement ladder](results/bed/fig5_ladder.png)
+
 The full table and figures are in `results/final/`, and a longer write-up is in `report/report.md`.
 
 ![Model comparison](results/final/fig_models.png)
@@ -42,7 +64,9 @@ The full table and figures are in `results/final/`, and a longer write-up is in 
 
 ## Limitations
 
-- **Same-visit data.** The "sessions" are runs recorded during the same visit, not different days. Splitting by run is better than splitting random clips, but real logins happen days apart, so real error rates would probably be worse than mine.
+- **Same-visit data (EEGMMIDB).** The "sessions" are runs recorded during the same visit, not different days. The BED test above shows real cross-day error is much higher.
+- **BED is small.** Only 21 subjects and resting state only. Logistic regression, Riemannian and template matching ran once (no error bars); only the CNN has 5 seeds, and it was run in four of the ten experiments. The attacks and defenses were not run on BED.
+- **Fixes were tested on the same three sessions.** There are only 3 sessions, so the numbers show what helps here, not what will hold on new data.
 - **Lab recordings.** The data comes from a research-grade EEG cap. I didn't test a consumer headset or live recording.
 - **One seed.** Everything was run with seed 42 and I have no error bars across seeds, so differences of a point or two shouldn't be over-read.
 - **Digital, white-box attacks.** The attacker knows the model and edits the signal directly. I didn't test whether this could be done to a real person.
