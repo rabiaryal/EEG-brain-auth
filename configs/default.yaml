@@ -77,13 +77,6 @@ defenses:
     pgd_n_iter: 10
     adv_fraction: 0.5            # fraction of adversarial examples per batch
 
-# ----- API -----
-api:
-  secret_key: dev-secret-change-me   # demo only; never use in production
-  jwt_algorithm: HS256
-  token_expire_minutes: 30
-  threshold_source: results       # EER threshold file produced by evaluation
-
 # ----- Paths -----
 paths:
   data_dir: data

@@ -9,5 +9,3 @@ $PY scripts/run_baseline.py --config $C
 $PY scripts/run_cnn.py --config $C
 $PY scripts/run_attacks.py --config $C
 $PY scripts/run_defenses.py --config $C
-$PY scripts/eval_embeddings.py --config $C --checkpoint cnn
-$PY scripts/eval_embeddings.py --config $C --checkpoint cnn_robust
